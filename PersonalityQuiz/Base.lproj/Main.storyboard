@@ -270,7 +270,7 @@
                         <outlet property="multiLabel3" destination="NGM-Uc-Xpp" id="co1-7m-Waw"/>
                         <outlet property="multiLabel4" destination="S4q-U1-kS4" id="bw1-hl-v1M"/>
                         <outlet property="multiSwitch1" destination="eRn-4G-KXS" id="2zq-uS-ab6"/>
-                        <outlet property="multiSwitch2" destination="b74-jW-pGp" id="MWg-WK-aqJ"/>
+                        <outlet property="multiSwitch2" destination="b74-jW-pGp" id="7Yg-HM-2gw"/>
                         <outlet property="multiSwitch3" destination="3qS-QA-1OL" id="hrL-h9-2nV"/>
                         <outlet property="multiSwitch4" destination="VPS-9Y-g7p" id="ldU-sI-FWA"/>
                         <outlet property="multipleStackView" destination="QEp-Cu-gSS" id="Kf0-fq-maY"/>
@@ -327,7 +327,11 @@
                         <viewLayoutGuide key="safeArea" id="Ku5-fM-rae"/>
                     </view>
                     <navigationItem key="navigationItem" title="Results" id="Eie-fU-xBC">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="nMh-ow-tTA"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="nMh-ow-tTA">
+                            <connections>
+                                <segue destination="U1E-iN-489" kind="unwind" unwindAction="unwindToQuizIntroductionWithSegue:" id="sb4-uV-CNh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="resultAnswerLabel" destination="QlZ-l2-EYo" id="0Kp-li-4Jt"/>
@@ -335,6 +339,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aep-nY-YxO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="U1E-iN-489" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2249" y="134"/>
         </scene>

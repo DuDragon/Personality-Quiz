@@ -43,9 +43,21 @@ class QuestionViewController: UIViewController {
     
     
     var questions: [Question] = [
-        //Question(text: "Which food do you like the most?", type: .single, answers: [Answer(text: "Steak", type: .dog), Answer(text: "Fish", type: .cat), Answer(text: "Carrot", type: .rabbit), Answer(text: "Corn", type: .turtle)]),
-        Question(text: "Which activities do you enjoy?", type: .multiple, answers: [Answer(text: "Swimming", type: .turtle), Answer(text: "Sleeping", type: .cat), Answer(text: "Cuddling", type: .rabbit), Answer(text: "Eating", type: .dog)]),
-        //Question(text: "How much do you enjoy car rides?", type: .ranged, answers: [Answer(text: "I dislike them", type: .cat), Answer(text: "I get a little nervous", type: .rabbit), Answer(text: "I barely notice them", type: .turtle), Answer(text: "I love them", type: .dog)])
+        Question(text: "Which activities do you enjoy?", type: .multiple, answers: [
+            Answer(text: "Swimming", type: .turtle),
+            Answer(text: "Cuddling", type: .rabbit),
+            Answer(text: "Sleeping", type: .cat),
+            Answer(text: "Eating", type: .dog)]),
+        Question(text: "How much do you enjoy car rides?", type: .ranged, answers: [
+            Answer(text: "I dislike them", type: .cat),
+            Answer(text: "I get a little nervous", type: .rabbit),
+            Answer(text: "I barely notice them", type: .turtle),
+            Answer(text: "I love them", type: .dog)]),
+        Question(text: "Which food do you like the most?", type: .single, answers: [
+            Answer(text: "Steak", type: .dog),
+            Answer(text: "Fish", type: .cat),
+            Answer(text: "Carrot", type: .rabbit),
+            Answer(text: "Corn", type: .turtle)])
     ]
     
     var questionIndex = 0
@@ -75,9 +87,11 @@ class QuestionViewController: UIViewController {
         let currentAnswers = questions[questionIndex].answers
         print("multo press")
         if multiSwitch1.isOn {
+            print("switch1 on")
             answersChosen.append(currentAnswers[0])
         }
         if multiSwitch2.isOn {
+            print("switch2 on")
             answersChosen.append(currentAnswers[1])
         }
         if multiSwitch3.isOn {
@@ -116,7 +130,6 @@ class QuestionViewController: UIViewController {
         let currentQuestion = questions[questionIndex]
         let currentAnswers = currentQuestion.answers
         let totalProgress = Float(questionIndex) / Float(questions.count)
-        
         navigationItem.title = "Question #\(questionIndex+1)"
         questionLabel.text = currentQuestion.text
         questionProgressView.setProgress(totalProgress, animated: true)
@@ -136,6 +149,8 @@ class QuestionViewController: UIViewController {
     }
  
     func updateSingleStack(using answers: [Answer]) {
+        multipleStackView.isHidden = true
+        rangedStackView.isHidden = true
         singleStackView.isHidden = false
         print("revealed single")
         singleButton1.setTitle(answers[0].text, for: .normal)
